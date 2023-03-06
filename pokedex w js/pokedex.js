@@ -43,7 +43,20 @@ async function getPokemon(num) {
 }
 
 function updatePokemon(){
+    
     document.getElementById("pokemon-img").src = pokedex[this.id]["img"];
+    //apagar apagar nome poke anterior
+    let pokemonNameDiv = document.getElementById("pokemon-name");
+    while (pokemonNameDiv.firstChild){
+        pokemonNameDiv.firstChild.remove();
+    }
+    //atualizar nome de poke
+    let pokemonName = pokedex[this.id]["name"].toUpperCase();
+    let pokemonNameStrong = document.createElement("strong");
+        pokemonNameStrong.innerText = pokemonName;
+        document.getElementById("pokemon-name").innerHTML = '';
+        document.getElementById("pokemon-name").appendChild(pokemonNameStrong);
+    
 
     //apagar tipos de poke anterior
     let typesDiv = document.getElementById("pokemon-types");
